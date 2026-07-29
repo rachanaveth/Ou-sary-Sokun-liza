@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engagement Invitation - Richard & Kanitha</title>
+    <!-- Google Fonts including Kantumruy Pro (Modern Khmer Sans-Serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;500;600;700&family=Khmer&family=Moul&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --modern-sage: #4A6B5D;     /* Sophisticated modern sage green */
+            --sage-light: #F4F7F5;      /* Soft background tint */
+            --gold-primary: #D4AF37;   /* Elegant Gold Accent */
+            --gold-dark: #aa8413;
+            --bg-color: #FAF9F6;        /* Modern off-white */
+            --card-bg: #ffffff;
+            --text-dark: #2C3531;
+            --text-muted: #6E7E75;
+            --border-color: #E2E8E4;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .invitation-container {
+            background: var(--card-bg);
+            max-width: 650px;
+            width: 100%;
+            border-radius: 24px;
+            box-shadow: 0 15px 40px rgba(74, 107, 93, 0.08);
+            border: 1px solid var(--border-color);
+            padding: 50px 35px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Page Toggle Visibility */
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+
+        /* Sleek Inner Border Frame */
+        .invitation-container::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border: 1px solid rgba(214, 175, 55, 0.3);
+            border-radius: 12px;
+            pointer-events: none;
+        }
+
+        /* Khmer Traditional Headings */
+        .khmer-title {
+            font-family: 'Moul', cursive;
+            color: var(--modern-sage);
+            font-size: 1.5rem;
+            line-height: 1.6;
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
+            font-weight: normal;
+        }
+
+        /* Modern Khmer Sans Class */
+        .khmer-sans {
+            font-family: 'Kantumruy Pro', 'Khmer', sans-serif;
+        }
+
+        .western-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--gold-dark);
+            margin-bottom: 35px;
+        }
+
+        /* Minimalist Modern Dividers */
+        .divider {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin: 20px auto;
+        }
+
+        .divider::before, .divider::after {
+            content: '';
+            height: 2px;
+            width: 90px;
+            background: linear-gradient(to right, transparent, var(--gold-primary), transparent);
+        }
+
+        /* Ring image responsive scaling and styling */
+        .divider img {
+            width: 65px;
+            height: 65px;
+            object-fit: contain;
+            display: block;
+            opacity: 0.85;
+            filter: drop-shadow(0 1px 2px rgba(212, 175, 55, 0.3));
+        }
+
+        /* Parents Section styling */
+        .parents-section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 35px;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            border-bottom: 1px solid var(--sage-light);
+            padding-bottom: 25px;
+        }
+
+        .parents-column {
+            width: 48%;
+            text-align: left;
+        }
+
+        .parents-column.right {
+            text-align: right;
+        }
+
+        .khmer-text {
+            font-family: 'Kantumruy Pro', 'Khmer', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            font-weight: 400;
+        }
+
+        .western-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* Invitation Message */
+        .cordial-request {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-bottom: 35px;
+            line-height: 1.7;
+            padding: 0 15px;
+        }
+
+        /* Pre-wedding Photo Frame */
+        .couple-photo-container {
+            width: 100%;
+            max-width: 380px;
+            margin: 0 auto 30px auto;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(74, 107, 93, 0.12);
+            border: 4px solid #ffffff;
+            outline: 1px solid var(--border-color);
+        }
+
+        .couple-photo {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Side-by-Side Portraits Layout Grid */
+        .diptych-portraits-container {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            max-width: 440px;
+            margin: 15px auto 25px auto;
+        }
+
+        .portrait-frame {
+            flex: 1;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(74, 107, 93, 0.08);
+            border: 4px solid #ffffff;
+            outline: 1px solid var(--border-color);
+            background: var(--sage-light);
+        }
+
+        .portrait-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            aspect-ratio: 3 / 4;
+        }
+
+        /* Couple Names Panel */
+        .couple-names-container {
+            margin: 35px 0 20px 0;
+            background: var(--sage-light);
+            padding: 30px 15px;
+            border-radius: 16px;
+        }
+
+        .groom-name, .bride-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--modern-sage);
+            font-weight: 600;
+        }
+
+        .khmer-couple-name {
+            font-family: 'Moul', cursive;
+            font-size: 1.25rem;
+            color: var(--gold-dark);
+            margin-top: 4px;
+            font-weight: normal;
+        }
+
+        /* Guest Invitation Box */
+        .guest-invitation-container {
+            margin: 25px auto;
+            max-width: 420px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .guest-invite-title-kh {
+            font-family: 'Moul', cursive;
+            color: var(--gold-dark);
+            font-size: 1.15rem;
+            margin-bottom: 2px;
+            font-weight: normal;
+        }
+
+        .guest-invite-title-en {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .guest-name-field {
+            font-family: 'Kantumruy Pro', 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            color: var(--modern-sage);
+            font-weight: 600;
+            min-height: 35px;
+            border-bottom: 1px dashed var(--gold-primary);
+            width: 85%;
+            margin: 0 auto;
+            padding-bottom: 5px;
+        }
+
+        /* Event Logistics Card */
+        .event-details {
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            padding: 25px 20px;
+            margin: 35px 0;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(74, 107, 93, 0.03);
+        }
+
+        .khmer-date-time {
+            font-family: 'Kantumruy Pro', sans-serif;
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+            font-weight: 400;
+        }
+
+        .khmer-date-time.highlight {
+            color: var(--modern-sage);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .western-date-time {
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--gold-dark);
+            margin-bottom: 12px;
+        }
+
+        .venue {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--modern-sage);
+            letter-spacing: 0.5px;
+        }
+
+        /* Countdown Style */
+        .countdown-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .time-box {
+            background: var(--sage-light);
+            padding: 12px;
+            border-radius: 12px;
+            min-width: 80px;
+        }
+
+        .time-box span {
+            display: block;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--modern-sage);
+        }
+
+        .time-box label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+        }
+
+        /* Full QR Container Styling */
+        .qr-placeholder-container {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            max-width: 300px;
+            width: 100%;
+            margin: 30px auto;
+            padding: 15px;
+            box-shadow: 0 4px 20px rgba(74, 107, 93, 0.05);
+        }
+
+        .qr-placeholder-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+        }
+
+        .qr-note-text {
+            font-family: 'Kantumruy Pro', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin: 20px 0;
+            padding: 0 10px;
+            font-weight: 400;
+        }
+
+        /* Action Buttons */
+        .actions-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 290px;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            font-size: 0.95rem;
+            background: var(--modern-sage);
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(74, 107, 93, 0.2);
+            border: none;
+            cursor: pointer;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-action:hover {
+            transform: translateY(-2px);
+            background: #3d594d;
+            box-shadow: 0 6px 20px rgba(74, 107, 93, 0.3);
+        }
+
+        .btn-secondary {
+            background: #ffffff;
+            color: var(--modern-sage);
+            border: 1px solid var(--modern-sage);
+            box-shadow: none;
+        }
+
+        .btn-secondary:hover {
+            background: var(--sage-light);
+            color: #3d594d;
+            border-color: #3d594d;
+        }
+
+        .btn-gold {
+            background: #FAF7EE;
+            color: var(--gold-dark);
+            border: 1px solid var(--gold-primary);
+            box-shadow: 0 4px 15px rgba(214, 175, 55, 0.15);
+            font-family: 'Kantumruy Pro', 'Poppins', sans-serif;
+            font-weight: 500;
+        }
+
+        .btn-gold:hover {
+            background: #F3ECE0;
+            color: var(--gold-dark);
+            border-color: var(--gold-dark);
+        }
+
+        /* Details Gallery Area */
+        .venue-photo-container {
+            margin: 25px 0;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            height: 260px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .venue-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Agenda Timelines */
+        .schedule-section {
+            text-align: left;
+            margin: 35px 0;
+            background: var(--sage-light);
+            padding: 30px 25px;
+            border-radius: 16px;
+        }
+
+        .schedule-title {
+            font-family: 'Moul', cursive;
+            font-size: 1.2rem;
+            color: var(--modern-sage);
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: normal;
+        }
+
+        .schedule-item {
+            margin-bottom: 20px;
+            border-left: 2px solid var(--gold-primary);
+            padding-left: 15px;
+        }
+
+        .schedule-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .schedule-time {
+            font-weight: 600;
+            color: var(--gold-dark);
+            font-size: 0.9rem;
+        }
+
+        .schedule-desc {
+            font-family: 'Kantumruy Pro', sans-serif;
+            font-size: 0.95rem;
+            margin-top: 3px;
+            color: var(--text-dark);
+            line-height: 1.6;
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="invitation-container">
+        
+        <!-- PAGE 1: MAIN INVITATION CARD -->
+        <div id="page-invitation" class="page active">
+            <!-- Header Text -->
+            <h1 class="khmer-title">សិរីមង្គលពិធីភ្ជាប់ពាក្យ</h1>
+            <p class="western-title">Engagement Reception</p>
+            
+            <!-- Parents Block -->
+            <div class="parents-section">
+                <div class="parents-column">
+                    <p class="khmer-text">លោក <b>វ៉ិត វាសនា</b></p>
+                    <p class="khmer-text">អ្នកស្រី <b>អ៊ុន សុភាព</b></p>
+                    <p class="western-text">Mr. VETH VEASNA</p>
+                    <p class="western-text">Mrs. UN SOPHEAP</p>
+                </div>
+                <div class="parents-column right">
+                    <p class="khmer-text">អ្នកស្រី <b>ម៉ារី ហ្វេព</b></p>
+                    <p class="western-text">Ms. MARY PHELPS</p>
+                </div>
+            </div>
+
+            <div class="cordial-request">
+                We joyfully invite you to celebrate our love and shared future on the occasion of our engagement
+            </div>
+
+            <!-- Couple Photo Section -->
+            <div class="couple-photo-container">
+                <img src="two.JPG" alt="Richard & Kanitha" class="couple-photo">
+            </div>
+
+            <!-- Couple Display Section -->
+            <div class="couple-names-container">
+                <h2 class="groom-name">Richard Kyle Phelps</h2>
+                <p class="khmer-couple-name">រីឆាត ខាល ហ្វេព</p>
+                
+                <div class="divider">
+                    <img src="ring.png" alt="Engagement Ring">
+                </div>
+                
+                <h2 class="bride-name">Veth Kanitha</h2>
+                <p class="khmer-couple-name">វ៉ិត កន្និដ្ឋា</p>
+            </div>
+
+            <!-- Guest Invitation Box -->
+            <div class="guest-invitation-container">
+                <p class="guest-invite-title-kh">សូមគោរពអញ្ជើញ</p>
+                <p class="guest-invite-title-en">Cordially Invites</p>
+                <div class="guest-name-field"></div>
+            </div>
+
+            <!-- Time and Venue details -->
+            <div class="event-details">
+                <p class="khmer-date-time">ថ្ងៃចន្ទ ១០ រោច ខែស្រាពណ៍ ឆ្នាំមមី អដ្ឋស័ក ព.ស. ២៥៧០</p>
+                <p class="khmer-date-time highlight">ត្រូវនឹងថ្ងៃទី ០៧ ខែកញ្ញា ឆ្នាំ២០២៦ វេលាម៉ោង ១១:០០ ថ្ងៃត្រង់</p>
+                
+                <p class="western-date-time">Monday, 07<sup>th</sup> September 2026, at 11:00 AM</p>
+                
+                <div class="divider" style="margin: 15px auto; width: 40px;"></div>
+                <p class="venue">AT THE TERRACE TK</p>
+            </div>
+
+            <!-- Interactive Countdown Component -->
+            <p class="countdown-title">Celebrating In</p>
+            <div class="countdown">
+                <div class="time-box">
+                    <span id="days">00</span>
+                    <label>Days</label>
+                </div>
+                <div class="time-box">
+                    <span id="hours">00</span>
+                    <label>Hours</label>
+                </div>
+                <div class="time-box">
+                    <span id="minutes">00</span>
+                    <label>Mins</label>
+                </div>
+            </div>
+
+            <!-- Main Action Button -->
+            <div class="actions-container">
+                <button onclick="navigateTo('page-details')" class="btn-action">Join Ceremony & View Details</button>
+            </div>
+        </div>
+
+
+        <!-- PAGE 2: CEREMONY DETAILS, MAP, & INFO -->
+        <div id="page-details" class="page">
+            <h1 class="khmer-sans" style="font-size: 1.4rem; color: var(--modern-sage); font-weight: 600;">ព័ត៌មានលម្អិតនៃកម្មវិធី</h1>
+            <p class="western-title" style="font-size: 0.9rem; margin-bottom: 15px;">Ceremony Details & Location</p>
+
+            <!-- Venue Image Display Area -->
+            <div class="venue-photo-container">
+                <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=600&auto=format&fit=crop" alt="The Terrace TK" class="venue-photo">
+            </div>
+
+            <p class="venue" style="margin-top: 10px;">THE TERRACE TK</p>
+            <p class="khmer-text" style="color: var(--text-muted); text-align: center; font-size: 0.9rem; margin-bottom: 25px;">ភោជនីយដ្ឋាន ដឹ ធឺរេស ធីខេ (ទួលគោក)</p>
+
+            <!-- Map Action Links -->
+            <div class="actions-container" style="margin-bottom: 30px;">
+                <a href="https://maps.google.com/?q=The+Terrace+TK+Phnom+Penh" target="_blank" class="btn-action">📍 Open Google Maps Location</a>
+            </div>
+
+            <!-- Agenda/Infos Section -->
+            <div class="schedule-section">
+                <h3 class="schedule-title">កម្មវិធីសិរីមង្គលភ្ជាប់ពាក្យ</h3>
+                
+                <div class="schedule-item">
+                    <p class="schedule-time">07:00 AM</p>
+                    <p class="schedule-desc">ជួបជុំភ្ញៀវកិត្តិយសជិតឆ្ងាយ ពិសារអាហារពេលព្រឹក</p>
+                </div>
+                
+                <div class="schedule-item">
+                    <p class="schedule-time">08:00 AM</p>
+                    <p class="schedule-desc">ពិធីចូលចែចូវ និងបំពាក់ចិញ្ចៀន</p>
+                </div>
+                
+                <div class="schedule-item">
+                    <p class="schedule-time">11:00 AM</p>
+                    <p class="schedule-desc">ពិសារភោជនាហារថ្ងៃត្រង់ ស្ថិតនៅ ភោជនីយដ្ឋាន ដឹ ធឺរេស ធីខេ</p>
+                </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="actions-container">
+                <button onclick="navigateTo('page-blessings')" class="btn-action btn-gold">ជូនពរជ័យ / Best Wishes</button>
+                <button onclick="navigateTo('page-invitation')" class="btn-action btn-secondary">⬅️ Back to Invitation</button>
+            </div>
+        </div>
+
+
+        <!-- PAGE 3: PORTRAITS, BLESSINGS & QR CODE -->
+        <div id="page-blessings" class="page">
+            <h1 class="khmer-sans" style="font-size: 1.4rem; color: var(--modern-sage); font-weight: 600;">ជូនពរជ័យ</h1>
+            <p class="western-title" style="font-size: 0.9rem; margin-bottom: 15px;">Best Wishes & Blessings</p>
+
+            <div class="diptych-portraits-container">
+                <div class="portrait-frame">
+                    <img src="01.jpg" alt="Groom - Richard" class="portrait-img">
+                </div>
+                <div class="portrait-frame">
+                    <img src="02.jpg" alt="Bride - Kanitha" class="portrait-img">
+                </div>
+            </div>
+
+            <div class="qr-note-text khmer-sans">
+                វត្តមាន និងពាក្យជូនពរដ៏ថ្លៃថ្លារបស់លោកអ្នក គឺជាកិត្តិយស និងសុភមង្គលដ៏ធំធេងសម្រាប់យើងខ្ញុំ ក្នុងឱកាសពិសេសនៃពិធីភ្ជាប់ពាក្យនេះ។ ប្រសិនបើលោកអ្នកមិនអាចអញ្ជើញមកចូលរួមដោយផ្ទាល់បានទេ ប៉ុន្តែមានបំណងផ្ញើនូវចំណងដៃ លោកអ្នកអាចប្រើប្រាស់ជម្រើសខាងក្រោមនេះ។ យើងខ្ញុំសូមថ្លែងអំណរគុណដោយស្មោះអស់ពីដួងចិត្ត ចំពោះក្តីស្រឡាញ់ ការគាំទ្រ និងពរជ័យដ៏មានតម្លៃពីលោកអ្នក។
+                <br><br>
+                <span style="font-family: 'Playfair Display', serif; font-style: italic; color: var(--text-muted); font-size: 0.9rem;">
+                    Your presence and warm blessings mean the world to us on this special occasion of our engagement. If you are unable to join us in person but wish to send a token of love, you may use the option below. We sincerely thank you from the bottom of our hearts for your love, support, and priceless wishes.
+                </span>
+            </div>
+
+            <div class="qr-placeholder-container">
+                <img src="qr.jpg" alt="Full Image View">
+            </div>
+
+            <p class="khmer-sans" style="color: var(--modern-sage); text-align: center; font-weight: 600; margin-bottom: 35px; line-height: 1.8;">
+                សូមអរគុណយ៉ាងជ្រាលជ្រៅយ៉ាងកក់ក្តៅបំផុតចំពោះការចូលរួមរបស់លោកអ្នក<br>
+                <span style="font-family: 'Playfair Display', serif; font-weight:500; font-size:0.85rem; color: var(--text-muted);">
+                    Our deepest and warmest thanks for your attendance.
+                </span>
+            </p>
+
+            <div class="actions-container">
+                <button onclick="navigateTo('page-details')" class="btn-action">View Ceremony Details</button>
+                <button onclick="navigateTo('page-invitation')" class="btn-action btn-secondary">⬅️ Back to Invitation</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function navigateTo(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        const targetDate = new Date("September 7, 2026 11:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference < 0) {
+                const countdownEl = document.querySelector(".countdown");
+                if(countdownEl) {
+                    countdownEl.innerHTML = "<h3 style='color: var(--modern-sage); font-family: Playfair Display, serif;'>The Celebration Has Begun!</h3>";
+                }
+                return;
+            }
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+
+            const daysEl = document.getElementById("days");
+            const hoursEl = document.getElementById("hours");
+            const minsEl = document.getElementById("minutes");
+
+            if(daysEl) daysEl.innerText = days.toString().padStart(2, '0');
+            if(hoursEl) hoursEl.innerText = hours.toString().padStart(2, '0');
+            if(minsEl) minsEl.innerText = minutes.toString().padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
